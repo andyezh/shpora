@@ -33,10 +33,10 @@
   setInterval(() => {
     const gamepads = navigator.getGamepads();
     if (gamepads) {
-      app.left = 'hello';
-      app.right = gamepad[0].axes[1];
-      app.up = gamepad[0].axes[2];
-      app.down = gamepad[0].axes[3];
+      app.left = gamepads[0].axes[0];
+      app.right = gamepads[0].axes[1];
+      app.up = gamepads[0].axes[2];
+      app.down = gamepads[0].axes[3];
     }
   }, 5000)
 
