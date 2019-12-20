@@ -36,8 +36,7 @@
     methods: {
       logKeyAndFetch: function (key, old, qnew) {
         if (qnew !== old && qnew === true) {
-          alert('event');
-          this.log.push(key);
+          this.logs.push(key);
           const url = 'http://ezhik.herokuapp.com/request.php?key=' + key;
           fetch(url);
         }

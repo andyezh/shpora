@@ -2,12 +2,12 @@
 require __DIR__ . '/../vendor/autoload.php';
 
 $commands = [
-    'KeyQ' => 'СТОП',
-    'KeyW' => 'Повтори',
-    'KeyE' => 'Да',
-    'KeyR' => 'Нет',
-    'KeyT' => 'АКР',
-    'KeyY' => 'Вопрос'
+    'left'  => 'СТОП',
+    'right' => 'Повтори',
+    'up'    => 'Да',
+    'down'  => 'Нет',
+    'btny'  => 'АКР',
+    'btna'  => 'Вопрос'
 ];
 
 $options = [
