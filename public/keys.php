@@ -50,10 +50,10 @@
       app.up = axes[1] <= -0.5 ? 'true' : null;
       app.down = axes[1] >= 0.5 ? 'true' : null;
 
-      app.btnx = btn[0].pressed === true ? 'true' : null;
-      app.btny = btn[1].pressed === true ? 'true' : null;
-      app.btnb = btn[2].pressed === true ? 'true' : null;
-      app.btna = btn[3].pressed === true ? 'true' : null;
+      app.btnx = btn[2].pressed === true ? 'true' : null;
+      app.btny = btn[3].pressed === true ? 'true' : null;
+      app.btnb = btn[1].pressed === true ? 'true' : null;
+      app.btna = btn[0].pressed === true ? 'true' : null;
     }
   }, 500)
 
