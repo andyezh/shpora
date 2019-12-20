@@ -43,29 +43,29 @@
       }
     },
     watch: {
-      left: function (old, qnew) {
+      left: function (qnew, old) {
         alert(old + ' ' + qnew);
         this.logKeyAndFetch('left', old, qnew)
       },
-      right: function (old, qnew) {
+      right: function (qnew, old) {
         this.logKeyAndFetch('right', old, qnew)
       },
-      up: function (old, qnew) {
+      up: function (qnew, old) {
         this.logKeyAndFetch('up', old, qnew)
       },
-      down: function (old, qnew) {
+      down: function (qnew, old) {
         this.logKeyAndFetch('down', old, qnew)
       },
-      btnx: function (old, qnew) {
+      btnx: function (qnew, old) {
         this.logKeyAndFetch('btnx', old, qnew)
       },
-      btny: function (old, qnew) {
+      btny: function (qnew, old) {
         this.logKeyAndFetch('btny', old, qnew)
       },
-      btnb: function (old, qnew) {
+      btnb: function (qnew, old) {
         this.logKeyAndFetch('btnb', old, qnew)
       },
-      btna: function (old, qnew) {
+      btna: function (qnew, old) {
         this.logKeyAndFetch('btna', old, qnew)
       },
     }
