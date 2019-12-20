@@ -1,11 +1,35 @@
 <html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
 <body>
-<div id="log"></div>
+
+<div id="app">
+    <div>left: {{left}}</div>
+    <div>rigth: {{right}}</div>
+    <div>up: {{up}}</div>
+    <div>down: {{down}}</div>
+</div>
 
 <script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      logs: [],
+      left: null,
+      right: null,
+      up: null,
+      down: null
+    }
+  });
+
+
   function scangamepad() {
     const gamepad = navigator.getGamepads();
-    alert(gamepad[0].axes)
+    app.data.left = gamepad[0].axes[0];
+    app.data.right = gamepad[0].axes[1];
+    app.data.up = gamepad[0].axes[2];
+    app.data.down = gamepad[0].axes[3];
   }
 
   function logKey(e) {
@@ -14,15 +38,9 @@
     fetch(url);
   }
 
-  window.addEventListener("gamepadconnected", (event) => {
-    alert("A gamepad connected:");
-  });
-
-  window.addEventListener("gamepaddisconnected", (event) => {
-    alert("A gamepad disconnected:");
-  });
-
   setInterval(scangamepad, 5000)
+
 </script>
 </body>
 </html>
+
