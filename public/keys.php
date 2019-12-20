@@ -5,7 +5,7 @@
 <script>
   function scangamepad() {
     const gamepad = navigator.getGamepads();
-    alert(gamepad[0])
+    alert(gamepad[0].axes)
   }
 
   function logKey(e) {
