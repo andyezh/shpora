@@ -27,7 +27,7 @@
   function scangamepad() {
     const gamepads = navigator.getGamepads();
     if (gamepads) {
-      app.left = gamepad[0].axes;
+      app.left = 'hello';
       app.right = gamepad[0].axes[1];
       app.up = gamepad[0].axes[2];
       app.down = gamepad[0].axes[3];
