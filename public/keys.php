@@ -6,7 +6,7 @@
 
 <div id="app">
     <div>left: {{left}}</div>
-    <div>rigth: {{right}}</div>
+    <div>right: {{right}}</div>
     <div>up: {{up}}</div>
     <div>down: {{down}}</div>
 </div>
@@ -25,11 +25,13 @@
 
 
   function scangamepad() {
-    const gamepad = navigator.getGamepads();
-    app.left = gamepad[0].axes[0];
-    app.right = gamepad[0].axes[1];
-    app.up = gamepad[0].axes[2];
-    app.down = gamepad[0].axes[3];
+    const gamepads = navigator.getGamepads();
+    if (gamepads) {
+      app.left = gamepad[0].axes;
+      app.right = gamepad[0].axes[1];
+      app.up = gamepad[0].axes[2];
+      app.down = gamepad[0].axes[3];
+    }
   }
 
   function logKey(e) {
