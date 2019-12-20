@@ -24,7 +24,13 @@
   });
 
 
-  function scangamepad() {
+  function logKey(e) {
+    log.textContent += e.gamepad;
+    const url = 'http://localhost/?key=' + e.gamepad;
+    fetch(url);
+  }
+
+  setInterval(() => {
     const gamepads = navigator.getGamepads();
     if (gamepads) {
       app.left = 'hello';
@@ -32,15 +38,7 @@
       app.up = gamepad[0].axes[2];
       app.down = gamepad[0].axes[3];
     }
-  }
-
-  function logKey(e) {
-    log.textContent += e.gamepad;
-    const url = 'http://localhost/?key=' + e.gamepad;
-    fetch(url);
-  }
-
-  setInterval(scangamepad, 5000)
+  }, 5000)
 
 </script>
 </body>
