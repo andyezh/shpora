@@ -21,6 +21,7 @@
     el: '#app',
     data: {
       logs: [],
+
       left: null,
       right: null,
       up: null,
@@ -28,16 +29,42 @@
       btnx: null,
       btny: null,
       btnb: null,
-      btna: null
+      btna: null,
+    },
+    methods: {
+      logKeyAndFetch: function (key) {
+        this.los.push(key);
+        const url = 'http://ezhik.herokuapp.com/?key=' + key;
+        fetch(url);
+      }
+    },
+    watch: {
+      left: function (oldLeft, newLeft) {
+        this.logKeyAndFetch('left')
+      },
+      right: function () {
+        this.logKeyAndFetch('right')
+      },
+      up: function () {
+        this.logKeyAndFetch('up')
+      },
+      down: function () {
+        this.logKeyAndFetch('down')
+      },
+      btnx: function () {
+        this.logKeyAndFetch('btnx')
+      },
+      btny: function () {
+        this.logKeyAndFetch('btny')
+      },
+      btnb: function () {
+        this.logKeyAndFetch('btnb')
+      },
+      btna: function () {
+        this.logKeyAndFetch('btna')
+      },
     }
   });
-
-
-  function logKey(e) {
-    log.textContent += e.gamepad;
-    const url = 'http://localhost/?key=' + e.gamepad;
-    fetch(url);
-  }
 
   setInterval(() => {
     const gamepads = navigator.getGamepads();
