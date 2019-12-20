@@ -47,25 +47,25 @@
         this.logKeyAndFetch('left', old, qnew)
       },
       right: function (old, qnew) {
-        this.logKeyAndFetch('right', qnew)
+        this.logKeyAndFetch('right', old, qnew)
       },
       up: function (old, qnew) {
-        this.logKeyAndFetch('up', qnew)
+        this.logKeyAndFetch('up', old, qnew)
       },
       down: function (old, qnew) {
-        this.logKeyAndFetch('down', qnew)
+        this.logKeyAndFetch('down', old, qnew)
       },
       btnx: function (old, qnew) {
-        this.logKeyAndFetch('btnx', qnew)
+        this.logKeyAndFetch('btnx', old, qnew)
       },
       btny: function (old, qnew) {
-        this.logKeyAndFetch('btny', qnew)
+        this.logKeyAndFetch('btny', old, qnew)
       },
       btnb: function (old, qnew) {
-        this.logKeyAndFetch('btnb', qnew)
+        this.logKeyAndFetch('btnb', old, qnew)
       },
       btna: function (old, qnew) {
-        this.logKeyAndFetch('btna', qnew)
+        this.logKeyAndFetch('btna', old, qnew)
       },
     }
   });
