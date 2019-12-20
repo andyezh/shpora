@@ -50,10 +50,10 @@
       app.up = axes[1] <= -0.5 ? 'true' : null;
       app.down = axes[1] >= 0.5 ? 'true' : null;
 
-      app.btnx = btn[0];
-      app.btny = btn[1];
-      app.btnb = btn[2];
-      app.btna = btn[3];
+      app.btnx = btn[0].pressed;
+      app.btny = btn[1].pressed;
+      app.btnb = btn[2].pressed;
+      app.btna = btn[3].pressed;
     }
   }, 500)
 
