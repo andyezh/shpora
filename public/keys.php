@@ -44,7 +44,7 @@
     },
     watch: {
       left: function (old, qnew) {
-        alert(old);
+        alert(qnew);
         this.logKeyAndFetch('left', old, qnew)
       },
       right: function (old, qnew) {
