@@ -55,7 +55,7 @@
       app.btnb = btn[1].pressed === true ? 'true' : null;
       app.btna = btn[0].pressed === true ? 'true' : null;
     }
-  }, 500)
+  }, 250)
 
 </script>
 </body>
