@@ -9,13 +9,15 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
 
-    <title>Hello, world!</title>
+    <title>Shpora Index</title>
 </head>
 <body>
 
 <div class="container" id="app">
     <div class="row">
-        <div class="col-md-12 mt-5 m-3">
+        <div class="col-md-12 m-3">
+            <div :class="[isNew ? 'alert-danger' : 'alert-light']" class="alert">New</div>
+
             <div v-for="log in logs.slice().reverse()" class="alert alert-primary">
                 {{ log.data }} | {{ log.command }}
             </div>
@@ -29,7 +31,16 @@
   const app = new Vue({
     el: '#app',
     data: {
-      logs: []
+      logs: [],
+      isNew: false
+    },
+    watch: {
+      logs: function () {
+        this.isNew = true;
+        setTimeout(() => {
+          this.isNew = false
+        }, 5000)
+      }
     }
   });
 
