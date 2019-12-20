@@ -9,6 +9,11 @@
     <div>right: {{right}}</div>
     <div>up: {{up}}</div>
     <div>down: {{down}}</div>
+
+    <div>btnx: {{btnx}}</div>
+    <div>btny: {{btny}}</div>
+    <div>btnb: {{btnb}}</div>
+    <div>btna: {{btna}}</div>
 </div>
 
 <script>
@@ -19,7 +24,11 @@
       left: null,
       right: null,
       up: null,
-      down: null
+      down: null,
+      btnx: null,
+      btny: null,
+      btnb: null,
+      btna: null
     }
   });
 
@@ -33,10 +42,18 @@
   setInterval(() => {
     const gamepads = navigator.getGamepads();
     if (gamepads) {
-      app.left = gamepads[0].axes[0] <= -0.5 ? 'true' : 'false';
-      app.right = gamepads[0].axes[0] >= 0.5 ? 'true' : 'false';
-      app.up = gamepads[0].axes[1] <= -0.5 ? 'true' : 'false';
-      app.down = gamepads[0].axes[1] >= 0.5 ? 'true' : 'false';
+      const axes = gamepads[0].axes;
+      const btn = gamepads[0].buttons;
+
+      app.left = axes[0] <= -0.5 ? 'true' : null;
+      app.right = axes[0] >= 0.5 ? 'true' : null;
+      app.up = axes[1] <= -0.5 ? 'true' : null;
+      app.down = axes[1] >= 0.5 ? 'true' : null;
+
+      app.btnx = btn[0];
+      app.btny = btn[1];
+      app.btnb = btn[2];
+      app.btna = btn[3];
     }
   }, 500)
 
