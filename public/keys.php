@@ -38,7 +38,7 @@
       app.up = gamepads[0].axes[2];
       app.down = gamepads[0].axes[3];
     }
-  }, 5000)
+  }, 500)
 
 </script>
 </body>
