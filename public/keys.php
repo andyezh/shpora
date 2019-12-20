@@ -4,7 +4,8 @@
 
 <script>
   function scangamepad() {
-    const gamepad = navigator.getGamepads()[0];
+    const gamepad = navigator.getGamepads();
+    alert(gamepad[0])
   }
 
   function logKey(e) {
@@ -21,10 +22,7 @@
     alert("A gamepad disconnected:");
   });
 
-  var gamepads = navigator.getGamepads();
-  if (gamepads) {
-    alert(gamepads[0]);
-  }
+  setInterval(scangamepad, 5000)
 </script>
 </body>
 </html>
