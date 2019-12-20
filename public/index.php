@@ -15,11 +15,8 @@
 
 <div class="container" id="app">
     <div class="row">
-        <div class="col-md-12 m-3">
-            <div
-                    v-for="log in logs.slice().reverse()"
-                    class="alert alert-primary"
-            >
+        <div class="col-md-12 mt-5 m-3">
+            <div v-for="log in logs.slice().reverse()" class="alert alert-primary">
                 {{ log.data }} | {{ log.command }}
             </div>
         </div>
@@ -43,7 +40,8 @@
 
   const channel = pusher.subscribe('my-channel');
   channel.bind('my-event', function (data) {
-    app.logs.push(data)
+    data.new = true;
+    app.logs.push(data);
   });
 </script>
 </html>
