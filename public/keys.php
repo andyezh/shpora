@@ -20,6 +20,11 @@
   window.addEventListener("gamepaddisconnected", (event) => {
     alert("A gamepad disconnected:");
   });
+
+  var gamepads = navigator.getGamepads();
+  if (gamepads) {
+    alert(gamepads);
+  }
 </script>
 </body>
 </html>
