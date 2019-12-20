@@ -14,6 +14,8 @@
     <div>btny: {{btny}}</div>
     <div>btnb: {{btnb}}</div>
     <div>btna: {{btna}}</div>
+
+    <p v-for="log in logs.slice().reverse()"> {{ log }}</p>
 </div>
 
 <script>
