@@ -23,7 +23,7 @@
 
   var gamepads = navigator.getGamepads();
   if (gamepads) {
-    alert(gamepads);
+    alert(gamepads[0]);
   }
 </script>
 </body>
