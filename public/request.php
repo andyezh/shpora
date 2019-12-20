@@ -7,7 +7,8 @@ $commands = [
     'up'    => 'Да',
     'down'  => 'Нет',
     'btny'  => 'АКР',
-    'btna'  => 'Вопрос'
+    'btna'  => 'Вопрос',
+    'btnx'  => 'ALEX'
 ];
 
 $options = [
