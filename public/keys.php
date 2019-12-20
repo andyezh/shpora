@@ -26,10 +26,10 @@
 
   function scangamepad() {
     const gamepad = navigator.getGamepads();
-    app.data.left = gamepad[0].axes[0];
-    app.data.right = gamepad[0].axes[1];
-    app.data.up = gamepad[0].axes[2];
-    app.data.down = gamepad[0].axes[3];
+    app.left = gamepad[0].axes[0];
+    app.right = gamepad[0].axes[1];
+    app.up = gamepad[0].axes[2];
+    app.down = gamepad[0].axes[3];
   }
 
   function logKey(e) {
