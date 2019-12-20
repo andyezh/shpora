@@ -32,36 +32,38 @@
       btna: null,
     },
     methods: {
-      logKeyAndFetch: function (key) {
-        this.los.push(key);
-        const url = 'http://ezhik.herokuapp.com/?key=' + key;
-        fetch(url);
+      logKeyAndFetch: function (key, status) {
+        if (status === true) {
+          this.los.push(key);
+          const url = 'http://ezhik.herokuapp.com/?key=' + key;
+          fetch(url);
+        }
       }
     },
     watch: {
-      left: function (oldLeft, newLeft) {
-        this.logKeyAndFetch('left')
+      left: function (old, qnew) {
+        this.logKeyAndFetch('left', qnew)
       },
-      right: function () {
-        this.logKeyAndFetch('right')
+      right: function (old, qnew) {
+        this.logKeyAndFetch('right', qnew)
       },
-      up: function () {
-        this.logKeyAndFetch('up')
+      up: function (old, qnew) {
+        this.logKeyAndFetch('up', qnew)
       },
-      down: function () {
-        this.logKeyAndFetch('down')
+      down: function (old, qnew) {
+        this.logKeyAndFetch('down', qnew)
       },
-      btnx: function () {
-        this.logKeyAndFetch('btnx')
+      btnx: function (old, qnew) {
+        this.logKeyAndFetch('btnx', qnew)
       },
-      btny: function () {
-        this.logKeyAndFetch('btny')
+      btny: function (old, qnew) {
+        this.logKeyAndFetch('btny', qnew)
       },
-      btnb: function () {
-        this.logKeyAndFetch('btnb')
+      btnb: function (old, qnew) {
+        this.logKeyAndFetch('btnb', qnew)
       },
-      btna: function () {
-        this.logKeyAndFetch('btna')
+      btna: function (old, qnew) {
+        this.logKeyAndFetch('btna', qnew)
       },
     }
   });
@@ -72,15 +74,15 @@
       const axes = gamepads[0].axes;
       const btn = gamepads[0].buttons;
 
-      app.left = axes[0] <= -0.5 ? 'true' : null;
-      app.right = axes[0] >= 0.5 ? 'true' : null;
-      app.up = axes[1] <= -0.5 ? 'true' : null;
-      app.down = axes[1] >= 0.5 ? 'true' : null;
+      app.left = axes[0] <= -0.5;
+      app.right = axes[0] >= 0.5;
+      app.up = axes[1] <= -0.5;
+      app.down = axes[1] >= 0.5;
 
-      app.btnx = btn[2].pressed === true ? 'true' : null;
-      app.btny = btn[3].pressed === true ? 'true' : null;
-      app.btnb = btn[1].pressed === true ? 'true' : null;
-      app.btna = btn[0].pressed === true ? 'true' : null;
+      app.btnx = btn[2].pressed;
+      app.btny = btn[3].pressed;
+      app.btnb = btn[1].pressed;
+      app.btna = btn[0].pressed;
     }
   }, 250)
 
