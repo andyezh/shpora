@@ -1,76 +1,38 @@
 version: '3.7'
 
 networks:
-  backend:
-    driver: bridge
-
-volumes:
-  mysql:
-    driver: local
-  redis:
-    driver: local
+    backend:
+        driver: bridge
 
 services:
 
-  php-fpm:
-    build:
-      context: ./php-fpm
-    depends_on:
-      - mysql
-    environment:
-      - TZ=${TZ}
-    networks:
-      - backend
-    volumes:
-      - ./..:/var/www
-      - ./php-fpm/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
-      - ./php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
-      - ./php-fpm/app.ini:/usr/local/etc/php/conf.d/app.ini
-      - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
+    php-fpm:
+        build:
+            context: ./php-fpm
+        environment:
+            - TZ=${TZ}
+        networks:
+            - backend
+        volumes:
+            - ./..:/var/www
+            - ./php-fpm/opcache.ini:/usr/local/etc/php/conf.d/opcache.ini
+            - ./php-fpm/xdebug.ini:/usr/local/etc/php/conf.d/xdebug.ini
+            - ./php-fpm/app.ini:/usr/local/etc/php/conf.d/app.ini
+            - ./php-fpm/php.ini:/usr/local/etc/php/php.ini
 
-  nginx:
-    build:
-      context: ./nginx
-    depends_on:
-      - php-fpm
-    environment:
-      - TZ=${TZ}
-    networks:
-      - backend
-    ports:
-      - 80:80
-    volumes:
-      - ./..:/var/www
-      - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./logs/nginx:/var/log/nginx
-
-  mysql:
-    build:
-      context: ./mysql
-    environment:
-      - MYSQL_DATABASE=${MYSQL_DATABASE}
-      - MYSQL_USER=${MYSQL_USER}
-      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - TZ=${TZ}
-    networks:
-      - backend
-    ports:
-      - 3306:3306
-    volumes:
-      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
-      - ./data/mysql:/var/lib/mysql
-      - ./logs/mysql:/var/log/mysql
-
-  redis:
-    build:
-      context: ./redis
-    environment:
-      - TZ=${TZ}
-    networks:
-      - backend
-    ports:
-      - 6379:6379
-    volumes:
-      - ./data/redis:/var/lib/redis
+    nginx:
+        build:
+            context: ./nginx
+        depends_on:
+            - php-fpm
+        environment:
+            - TZ=${TZ}
+        networks:
+            - backend
+        ports:
+            - 80:80
+        volumes:
+            - ./..:/var/www
+            - ./nginx/conf.d:/etc/nginx/conf.d
+            - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+            - ./logs/nginx:/var/log/nginx

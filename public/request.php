@@ -24,7 +24,7 @@ $pusher  = new Pusher\Pusher(
 
 $data = [
     'data'    => (new DateTime())->format('H:i:s'),
-    'command' => $commands[$_GET['key']]
+    'command' => $commands[$_GET['key']] ?? 'unknown'
 ];
 $pusher->trigger('my-channel', 'my-event', $data);
 

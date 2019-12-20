@@ -1,22 +1,32 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+
+    <title>Hello, world!</title>
 </head>
 <body>
 
-<div id="app">
-    <div>left: {{left}}</div>
-    <div>right: {{right}}</div>
-    <div>up: {{up}}</div>
-    <div>down: {{down}}</div>
-
-    <div>btnx: {{btnx}}</div>
-    <div>btny: {{btny}}</div>
-    <div>btnb: {{btnb}}</div>
-    <div>btna: {{btna}}</div>
-
-    <p v-for="log in logs.slice().reverse()"> {{ log }}</p>
+<div class="container" id="app">
+    <div class="row">
+        <div class="col-md-12 m-3">
+            <div
+                    v-for="log in logs.slice().reverse()"
+                    class="alert alert-primary"
+            >
+                {{ log }}
+            </div>
+        </div>
+    </div>
 </div>
+
+</body>
 
 <script>
   const app = new Vue({
@@ -91,4 +101,3 @@
 </script>
 </body>
 </html>
-
