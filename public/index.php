@@ -1,30 +1,32 @@
-<?php
-require __DIR__ . '/../vendor/autoload.php';
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://js.pusher.com/5.0/pusher.min.js"></script>
+</head>
+<body>
 
-$commands = [
-    'KeyQ' => 'СТОП',
-    'KeyW' => 'Повтори',
-    'KeyE' => 'Да',
-    'KeyR' => 'Нет',
-    'KeyT' => 'АКР',
-    'KeyY' => 'Вопрос'
-];
+<div id="app">
+    <div v-for="log in logs.slice().reverse()">{{ log }}</div>
+</div>
 
-$options = [
-    'cluster' => 'eu',
-    'useTLS'  => true
-];
-$pusher  = new Pusher\Pusher(
-    'e11427fbe1304bcdb59a',
-    '3fdd69abde0541675d0d',
-    '921087',
-    $options
-);
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      logs: []
+    }
+  });
 
-$data = [
-    'data'    => (new DateTime())->format('H:i:s'),
-    'command' => $commands[$_GET['key']]
-];
-$pusher->trigger('my-channel', 'my-event', $data);
+  const pusher = new Pusher('e11427fbe1304bcdb59a', {
+    cluster: 'eu',
+    forceTLS: true
+  });
 
-echo 'sended';
+  const channel = pusher.subscribe('my-channel');
+  channel.bind('my-event', function (data) {
+    app.logs.push(data)
+  });
+
+</script>
+</body>
+</html>
