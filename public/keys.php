@@ -24,14 +24,14 @@
     data: {
       logs: [],
 
-      left: null,
-      right: null,
-      up: null,
-      down: null,
-      btnx: null,
-      btny: null,
-      btnb: null,
-      btna: null,
+      left: false,
+      right: false,
+      up: false,
+      down: false,
+      btnx: false,
+      btny: false,
+      btnb: false,
+      btna: false,
     },
     methods: {
       logKeyAndFetch: function (key, old, qnew) {
