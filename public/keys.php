@@ -34,9 +34,8 @@
       btna: null,
     },
     methods: {
-      logKeyAndFetch: function (key, status) {
-        alert('key ' + key);
-        if (status === true) {
+      logKeyAndFetch: function (key, old, qnew) {
+        if (qnew !== old && qnew === true) {
           this.los.push(key);
           const url = 'http://ezhik.herokuapp.com/?key=' + key;
           fetch(url);
@@ -45,8 +44,7 @@
     },
     watch: {
       left: function (old, qnew) {
-        alert('event');
-        this.logKeyAndFetch('left', qnew)
+        this.logKeyAndFetch('left', old, qnew)
       },
       right: function (old, qnew) {
         this.logKeyAndFetch('right', qnew)
