@@ -16,9 +16,7 @@
 <div class="container" id="app">
     <div class="row">
         <div class="col-md-12 m-3">
-            <div :class="[isNew ? 'alert-danger' : 'alert-light']" class="alert">New</div>
-
-            <div v-for="log in logs.slice().reverse()" class="alert alert-primary">
+            <div :class="{'alert-danger': log.new}" v-for="log in logs.slice().reverse()" class="alert alert-primary">
                 {{ log.data }} | {{ log.command }}
             </div>
         </div>
@@ -31,14 +29,18 @@
   const app = new Vue({
     el: '#app',
     data: {
-      logs: [],
-      isNew: false
+      logs: []
     },
     watch: {
-      logs: function () {
-        this.isNew = true;
+      logs: function (logs) {
+        const index = logs.length - 1;
+        this.newLog(index);
+      }
+    },
+    methods: {
+      newLog(index) {
         setTimeout(() => {
-          this.isNew = false
+          this.logs[index].new = false
         }, 5000)
       }
     }
