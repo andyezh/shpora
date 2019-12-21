@@ -33,6 +33,7 @@
     },
     watch: {
       logs: function (logs) {
+        this.clearLog();
         const index = logs.length - 1;
         this.newLog(index);
       }
@@ -42,6 +43,11 @@
         setTimeout(() => {
           this.logs[index].new = false
         }, 5000)
+      },
+      clearLog: function () {
+        if (this.logs.length === 40) {
+          this.logs = []
+        }
       }
     }
   });
