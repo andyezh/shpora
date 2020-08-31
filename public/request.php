@@ -20,7 +20,7 @@ $pusher = new Pusher\Pusher(
     '7a09f2737900a33401ca',
     '1064331',
     $options
-  );
+);
 
 $data = [
     'data'    => (new DateTime())->format('H:i:s'),
