@@ -47,7 +47,7 @@
         if (qnew !== old && qnew === true) {
           this.clearLog();
           this.logs.push(key);
-          const url = 'http://ezhik.herokuapp.com/request.php?key=' + key;
+          const url = 'https://ezhik.herokuapp.com/request.php?key=' + key;
           fetch(url);
         }
       },
