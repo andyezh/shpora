@@ -15,12 +15,12 @@ $options = [
     'cluster' => 'eu',
     'useTLS'  => true
 ];
-$pusher  = new Pusher\Pusher(
+$pusher = new Pusher\Pusher(
     'be230afd42b050798aff',
     '7a09f2737900a33401ca',
     '1064331',
     $options
-);
+  );
 
 $data = [
     'data'    => (new DateTime())->format('H:i:s'),
