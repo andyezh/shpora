@@ -87,8 +87,7 @@
 
   setInterval(() => {
     const gamepads = navigator.getGamepads();
-    if (gamepads) {
-        console.log(gamepads)
+    if (gamepads[0]) {
       const axes = gamepads[0].axes;
       const btn = gamepads[0].buttons;
 
