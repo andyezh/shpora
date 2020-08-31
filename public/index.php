@@ -52,7 +52,7 @@
     }
   });
 
-  const pusher = new Pusher('e11427fbe1304bcdb59a', {
+  const pusher = new Pusher('be230afd42b050798aff', {
     cluster: 'eu',
     forceTLS: true
   });
