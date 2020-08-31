@@ -16,9 +16,9 @@ $options = [
     'useTLS'  => true
 ];
 $pusher  = new Pusher\Pusher(
-    'e11427fbe1304bcdb59a',
-    '3fdd69abde0541675d0d',
-    '921087',
+    'be230afd42b050798aff',
+    '7a09f2737900a33401ca',
+    '1064331',
     $options
 );
 
